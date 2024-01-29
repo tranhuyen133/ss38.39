@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ứng dụng theo dõi uống nước</title>
+  <style>
+    #bigCup {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+      border-radius: 50%;
+      position: relative;
+      margin: 20px auto;
+    }
+
+    .smallCup {
+      width: 40px;
+      height: 40px;
+      background-color: green;
+      border-radius: 50%;
+      position: absolute;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="bigCup">
+  <div id="remainingWater"></div>
+  <div id="waterLevel"></div>
+  <div id="cups"></div>
+</div>
+
+<script>
+  const bigCup = document.getElementById('bigCup');
+  const remainingWater = document.getElementById('remainingWater');
+  const waterLevel = document.getElementById('waterLevel');
+  const cupsContainer = document.getElementById('cups');
+  const smallCupCount = 8;
+  const smallCupVolume = 250; // ml
+  const bigCupVolume = 2000; // ml
+
+  // Khởi tạo cốc nhỏ
+  for (let i = 0; i < smallCupCount; i++) {
+    const smallCup = document.createElement('div');
+    smallCup.className = 'smallCup';
+    smallCup.style.left = `${i * 30}px`;
+    smallCup.addEventListener('click', () => fillBigCup(i + 1));
+    cupsContainer.appendChild(smallCup);
+  }
+
+  // Khởi tạo sự kiện khi click vào cốc nhỏ
+  function fillBigCup(cupCount) {
+    const percentage = (cupCount * smallCupVolume) / bigCupVolume * 100;
+
+    if (percentage >= 100) {
+      remainingWater.innerText = '0L';
+      waterLevel.style.height = '100%';
+    } else {
+      const remainingLiters = (bigCupVolume - (cupCount * smallCupVolume)) / 1000;
+      remainingWater.innerText = `${remainingLiters.toFixed(2)}L`;
+      waterLevel.style.height = `${percentage}%`;
+    }
+  }
+</script>
+
+</body>
+</html>

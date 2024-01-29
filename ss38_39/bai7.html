@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bai7.css">
+    <title>Multi-step Form</title>
+</head>
+<body>
+
+<div id="options-container">
+  <label>
+    Độ dài của password:
+    <input type="number" id="length" value="12" min="6" max="30">
+  </label>
+
+  <label>
+    Password phải có ký tự viết hoa:
+    <input type="checkbox" id="uppercase">
+  </label>
+
+  <label>
+    Password phải có ký tự viết thường:
+    <input type="checkbox" id="lowercase">
+  </label>
+
+  <label>
+    Password phải bao gồm số:
+    <input type="checkbox" id="numbers">
+  </label>
+
+  <label>
+    Password phải bao gồm ký tự đặc biệt:
+    <input type="checkbox" id="specialChars">
+  </label>
+</div>
+
+<div id="password-container">
+  <input type="text" id="password-input" readonly>
+  <button id="copy-button" onclick="copyToClipboard()">Copy</button>
+</div>
+<script src="bai7.js"></script>
+</body>
+</html>

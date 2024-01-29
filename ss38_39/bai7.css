@@ -1,0 +1,44 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  #password-container {
+    text-align: center;
+  }
+
+  #password-input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+    width: 300px;
+  }
+
+  #options-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  label {
+    margin-bottom: 5px;
+  }
+
+  #copy-button {
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  #copy-button:hover {
+    background-color: #2980b9;
+  }
